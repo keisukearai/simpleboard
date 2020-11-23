@@ -40,6 +40,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        // 入力チェック
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
         //
         $post = new Post();
         $post->title = $request->input('title');
@@ -82,6 +87,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        // 入力チェック
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
         //
         $post->title = $request->input('title');
         $post->content = $request->input('content');
