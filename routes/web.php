@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('posts', 'PostController');
+// Route::get('/posts', 'PostController@index');
+// Route::get('/posts/create', 'PostController@create');
+
+if (env('APP_ENV') === 'local') {
+    URL::forceScheme('https');
+}
